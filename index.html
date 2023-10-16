@@ -5,21 +5,35 @@
 		<link rel="stylesheet" href="https://unpkg.com/open-props/normalize.dark.min.css" />
 
 		<!-- Tram-Lite & Javascript -->
-		<script src="https://unpkg.com/tram-lite@2"></script>
+		<script src="https://unpkg.com/tram-lite@4/output/import-components.js" 
+            tl-components="./people-hours/people-hours.html ./people-hours/hours-row/hours-row.html">
+        </script>
 
         <!-- Custom CSS -->
         <link rel="stylesheet" type="text/css" href="./styles.css" />
 
+        <!-- Additional elements-->
+        <script src="./people-hours/people-hours.js"></script>
+        <script src="./people-hours/hours-row/hours-row.js"></script>
+
         <!-- fav icon stuff -->
         <title>TipSplit - Smile like the warm sun</title>
 		<link rel="icon" type="image/png" href="./sun.png" />
-        
+
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </head>
     <body>
         <main>
             <header>
+                <h1>Tip Split</h1>
             </header>
+            <section  total>
+                <a>Enter the total tips: $</a>
+                <input id="totalVal" type="number" step="0.01"></input>
+            </section>
+            <section people>
+                <people-hours></people-hours>
+            </section>
         </main>
     </body>
 </html>

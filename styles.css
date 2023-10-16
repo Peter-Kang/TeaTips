@@ -1,0 +1,37 @@
+/* fonts */
+
+/* center align content */
+h1,
+p,
+main {
+  margin: auto;
+}
+main {
+  text-align: center;
+}
+
+/* Main Grid */
+main {
+  display: grid;
+  height: 100vh;
+  grid-template-rows: 5em 5em auto;
+  grid-template-columns: 15px 1fr 15px;
+  grid-template-areas:
+    ". title  ."
+    ". total  ."
+    ". people .";
+  gap: 1em;
+}
+/*Assign grid areas*/
+header {
+  grid-area: title;
+}
+section[total] {
+  align-self: center;
+  grid-area: total;
+  padding: 2em;
+}
+
+section[people] {
+  grid-area: people;
+}
