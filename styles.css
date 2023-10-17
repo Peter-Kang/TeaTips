@@ -56,3 +56,9 @@ img {
 	width: 256;
 	height: 256;
 }
+
+/*Circle around the body*/
+body
+{
+  background-color: var(--gray-8);
+}
