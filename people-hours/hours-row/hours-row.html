@@ -1,17 +1,23 @@
 <hours-row style="margin: 15px; display: block">
-  <label>Name:</label>
-  <input type="text" style="width: 7em" />
-  <label>Hours:</label>
-  <input
-    style="width: 5em"
-    class="hoursInput"
-    id="hours"
-    size="2"
-    maxlength="2"
-    type="number"
-    value=""
-    onkeyup="recomputeSplitTips()"
-  />
+  <label>Name:
+    <input type="text" style="width: 7em" />
+  </label>
+  <label>Hours:
+    <input tl-controlled
+      tl-trigger="input"
+      tl-hostattr="hours"
+      style="width: 5em"
+      class="hoursInput"
+      id="hours"
+      size="2"
+      maxlength="2"
+      type="number"
+    />
+  </label>
   <button onclick="remove(this)">Remove</button>
   <label id="displaySplit"> $--.--</label>
+
+  <script tl-effect tl-dependencies="hours">
+    recomputeSplitTips()
+  </script>
 </hours-row>
