@@ -23,7 +23,7 @@ function recomputeSplitTips() {
         );
         if (!isNaN(parsedHours)) {
           const display = h.shadowRoot.getElementById("displaySplit");
-          const personsTips = (parsedHours * dollarPerHour).toPrecision(2);
+          const personsTips = (parsedHours * dollarPerHour).toFixed(2);
           const displayText = "$" + personsTips.toString();
           display.innerHTML = displayText;
         }
