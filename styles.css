@@ -1,5 +1,8 @@
 /* fonts */
-
+body, head
+{
+  text-shadow: black 2px 2px ;
+}
 /* center align content */
 h1,
 p,
