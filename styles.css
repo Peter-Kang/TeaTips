@@ -6,6 +6,7 @@ body, head
 /* center align content */
 h1,
 p,
+img,
 main {
   margin: auto;
 }
@@ -17,10 +18,11 @@ main {
 main {
   display: grid;
   height: 100vh;
-  grid-template-rows: 5em 5em auto;
+  grid-template-rows: 5em 15em 5em auto;
   grid-template-columns: 15px 1fr 15px;
   grid-template-areas:
     ". title  ."
+    ". sun ."
     ". total  ."
     ". people .";
   gap: 1em;
@@ -34,11 +36,16 @@ section[total] {
   grid-area: total;
   padding: 2em;
 }
+img
+{
+  grid-area: sun;
+}
 
 section[people] {
   grid-area: people;
 }
 
+/*Image size and setting*/
 img {
 	content: url('./sun.png');
 	width: 256;
