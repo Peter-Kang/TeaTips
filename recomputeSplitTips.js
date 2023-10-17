@@ -5,11 +5,13 @@ function recomputeSplitTips() {
     .querySelector("people-hours")
     .shadowRoot.querySelectorAll("hours-row")
     .forEach((h) => {
-      const parsedValue = parseFloat(
-        h.shadowRoot.getElementById("hours").value
-      );
-      if (!isNaN(parsedValue)) {
-        totalHours += parsedValue;
+      if (h.shadowRoot.getElementById("hours")) {
+        const parsedValue = parseFloat(
+          h.shadowRoot.getElementById("hours").value
+        );
+        if (!isNaN(parsedValue)) {
+          totalHours += parsedValue;
+        }
       }
     });
   if (!isNaN(totalHours) && !isNaN(totalTips) && totalHours > 0) {
@@ -18,14 +20,16 @@ function recomputeSplitTips() {
       .querySelector("people-hours")
       .shadowRoot.querySelectorAll("hours-row")
       .forEach((h) => {
-        const parsedHours = parseFloat(
-          h.shadowRoot.getElementById("hours").value
-        );
-        if (!isNaN(parsedHours)) {
-          const display = h.shadowRoot.getElementById("displaySplit");
-          const personsTips = (parsedHours * dollarPerHour).toFixed(2);
-          const displayText = "$" + personsTips.toString();
-          display.innerHTML = displayText;
+        if (h.shadowRoot.getElementById("hours")) {
+          const parsedHours = parseFloat(
+            h.shadowRoot.getElementById("hours").value
+          );
+          if (!isNaN(parsedHours)) {
+            const display = h.shadowRoot.getElementById("displaySplit");
+            const personsTips = (parsedHours * dollarPerHour).toFixed(2);
+            const displayText = "$" + personsTips.toString();
+            display.innerHTML = displayText;
+          }
         }
       });
   }
