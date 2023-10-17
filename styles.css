@@ -35,3 +35,9 @@ section[total] {
 section[people] {
   grid-area: people;
 }
+
+img {
+	content: url('./sun.png');
+	width: 256;
+	height: 256;
+}
