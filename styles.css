@@ -58,5 +58,10 @@ img {
 
 /*Circle around the body*/
 body {
-  background-color: var(--gray-8);
+  background: rgb(89, 89, 7);
+  background: linear-gradient(
+    140deg,
+    rgba(89, 89, 7, 1) 0%,
+    rgba(31, 44, 57, 1) 100%
+  );
 }
