@@ -3,6 +3,6 @@
     "start": "npx serve ."
   },
   "devDependencies": {
-    "tram-lite": "^2.4.1"
+    "tram-lite": "^4.2.0"
   }
 }
