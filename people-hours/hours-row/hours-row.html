@@ -49,6 +49,9 @@
         const totalTips = parseFloat(
           this.getRootNode().host.getAttribute("total-tips")
         );
+        if (totalHours <= 0 && totalTips <= 0) {
+          return;
+        }
         const value =
           Math.floor(
             (totalTips / totalHours) *
