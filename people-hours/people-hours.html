@@ -31,7 +31,10 @@
     this.addEventListener("hours-updated", () => {
       let totalHours = 0;
       this.shadowRoot.querySelectorAll("hours-row").forEach((h) => {
-        totalHours += parseFloat(h.getAttribute("hours")) || 0;
+        const hours = parseFloat(h.getAttribute("hours"));
+        if (hours && hours > 0) {
+          totalHours += hours;
+        }
       });
       this.setAttribute("total-hours", totalHours);
     });
