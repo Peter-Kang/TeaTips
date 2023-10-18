@@ -38,7 +38,7 @@
       this.getRootNode().host,
       ["total-hours", "total-tips"],
       () => {
-        if (!this.hasAttribute("hours")) {
+        if (!this.hasAttribute("hours") || this.getAttribute("hours") <= 0) {
           this.shadowRoot.getElementById("displaySplit").innerHTML = "$--.--";
           return;
         }
