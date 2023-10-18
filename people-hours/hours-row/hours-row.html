@@ -50,7 +50,11 @@
           this.getRootNode().host.getAttribute("total-tips")
         );
         const value =
-          (totalTips / totalHours) * parseFloat(this.getAttribute("hours"));
+          Math.floor(
+            (totalTips / totalHours) *
+              parseFloat(this.getAttribute("hours")) *
+              100.0
+          ) / 100.0;
         this.shadowRoot.getElementById(
           "displaySplit"
         ).innerHTML = `$${value.toFixed(2)}`;
