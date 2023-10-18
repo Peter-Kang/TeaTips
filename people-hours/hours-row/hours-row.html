@@ -1,23 +1,69 @@
 <hours-row style="margin: 15px; display: block">
-  <label>Name:
-    <input type="text" style="width: 7em" />
-  </label>
-  <label>Hours:
-    <input tl-controlled
-      tl-trigger="input"
-      tl-hostattr="hours"
-      style="width: 5em"
-      class="hoursInput"
-      id="hours"
-      size="2"
-      maxlength="2"
-      type="number"
-    />
-  </label>
-  <button onclick="remove(this)">Remove</button>
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/open-props/normalize.dark.min.css"
+  />
+  <style>
+    button {
+      margin: 0.5em;
+      color: crimson;
+    }
+    button:hover {
+      background-color: crimson;
+      color: white;
+    }
+    #hours {
+      width: 5em;
+    }
+    #name {
+      width: 5em;
+    }
+  </style>
+
+  <button onclick="remove(this)">X</button>
+  <input id="name" type="text" placeholder="Name" />
+  <input
+    tl-controlled
+    tl-trigger="input"
+    tl-hostattr="hours"
+    class="hoursInput"
+    id="hours"
+    type="number"
+    placeholder="Hours"
+  />
   <label id="displaySplit"> $--.--</label>
 
+  <script tl-effect>
+    TramLite.addAttributeListener(
+      this.getRootNode().host,
+      ["total-hours", "total-tips"],
+      () => {
+        if (!this.hasAttribute("hours")) {
+          this.shadowRoot.getElementById("displaySplit").innerHTML = "$--.--";
+          return;
+        }
+        //getRootNode gets the topmost node thats in this shadowDom. and host gets whats directly wrapping it
+        const totalHours = parseFloat(
+          this.getRootNode().host.getAttribute("total-hours")
+        );
+        const totalTips = parseFloat(
+          this.getRootNode().host.getAttribute("total-tips")
+        );
+        const value =
+          (totalTips / totalHours) * parseFloat(this.getAttribute("hours"));
+        this.shadowRoot.getElementById(
+          "displaySplit"
+        ).innerHTML = `$${value.toFixed(2)}`;
+      }
+    );
+  </script>
   <script tl-effect tl-dependencies="hours">
-    recomputeSplitTips()
+    const event = new CustomEvent("hours-updated", {
+      //when a event is set to bubble, it only child to parent
+      composed: true,
+      //when you do compose it goes through shadow dom boundaries, typically events only go up to the parent
+    });
+    //this.getRootNode().host.dispatchEvent(event);
+    this.dispatchEvent(event);
   </script>
 </hours-row>

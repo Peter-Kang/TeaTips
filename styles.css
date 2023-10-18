@@ -1,11 +1,13 @@
 /* fonts */
 header {
-	font-family: 'Monoton', sans-serif;
+  font-family: "Monoton", sans-serif;
 }
 /*Font Shadow */
-body
-{
-  text-shadow: black 2px 2px ;
+body {
+  text-shadow: black 2px 2px;
+}
+h1 {
+  font-weight: 400;
 }
 
 /* center align content */
@@ -22,13 +24,10 @@ main {
 /* Main Grid */
 main {
   display: grid;
-  height: 100vh;
-  grid-template-rows: 5em 15em 5em auto;
+  grid-template-rows: 5em 15em auto;
   grid-template-columns: 15px 1fr 15px;
   grid-template-areas:
     ". title  ."
-    ". sun ."
-    ". total  ."
     ". people .";
   gap: 1em;
 }
@@ -41,10 +40,6 @@ section[total] {
   grid-area: total;
   padding: 2em;
 }
-img
-{
-  grid-area: sun;
-}
 
 section[people] {
   grid-area: people;
@@ -52,13 +47,13 @@ section[people] {
 
 /*Image size and setting*/
 img {
-	content: url('./sun.png');
-	width: 256;
-	height: 256;
+  content: url("./sun.png");
+  width: 1em;
+  height: 1em;
+  display: inline;
 }
 
 /*Circle around the body*/
-body
-{
+body {
   background-color: var(--gray-8);
 }
