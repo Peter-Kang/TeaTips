@@ -24,11 +24,14 @@ main {
 /* Main Grid */
 main {
   display: grid;
-  grid-template-rows: 5em 15em auto;
-  grid-template-columns: 15px 1fr 15px;
+  grid-template-rows: auto 1fr;
+  /*fr is good for breaking up less open space into fractions
+  auto give this thing as much space as it needs
+  */
+  grid-template-columns: 1fr;
   grid-template-areas:
-    ". title  ."
-    ". people .";
+    "title"
+    "people";
   gap: 1em;
 }
 /*Assign grid areas*/
