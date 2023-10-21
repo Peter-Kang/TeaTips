@@ -3,10 +3,14 @@
     rel="stylesheet"
     href="https://unpkg.com/open-props/normalize.dark.min.css"
   />
+  <link rel="stylesheet" href="https://unpkg.com/open-props/buttons.min.css" />
   <style>
     button {
       margin: 0.5em;
       color: crimson;
+      --_border: var(--red-12);
+      height: 30px;
+      width: 30px;
     }
     button:hover {
       background-color: crimson;
@@ -20,7 +24,7 @@
     }
   </style>
 
-  <button onclick="remove(this)">X</button>
+  <button onclick="remove(this)" type="button">X</button>
   <input id="name" type="text" placeholder="Name" />
   <input
     tl-controlled
