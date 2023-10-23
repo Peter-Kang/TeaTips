@@ -42,10 +42,6 @@
       this.getRootNode().host,
       ["total-hours", "total-tips"],
       () => {
-        if (!this.hasAttribute("hours") || this.getAttribute("hours") <= 0) {
-          this.shadowRoot.getElementById("displaySplit").innerHTML = "$--.--";
-          return;
-        }
         //getRootNode gets the topmost node thats in this shadowDom. and host gets whats directly wrapping it
         const totalHours = parseFloat(
           this.getRootNode().host.getAttribute("total-hours")
@@ -53,6 +49,11 @@
         const totalTips = parseFloat(
           this.getRootNode().host.getAttribute("total-tips")
         );
+
+        if (!this.hasAttribute("hours") || this.getAttribute("hours") <= 0 || isNaN(totalTips)) {
+          this.shadowRoot.getElementById("displaySplit").innerHTML = "$--.--";
+          return;
+        }
         if (totalHours <= 0 && totalTips <= 0) {
           return;
         }
@@ -61,7 +62,8 @@
             (totalTips / totalHours) *
               parseFloat(this.getAttribute("hours")) *
               100.0
-          ) / 100.0;
+          ) / 100.0;  
+          
         this.shadowRoot.getElementById(
           "displaySplit"
         ).innerHTML = `$${value.toFixed(2)}`;
