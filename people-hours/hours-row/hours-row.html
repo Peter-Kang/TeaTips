@@ -3,7 +3,10 @@
     rel="stylesheet"
     href="https://unpkg.com/open-props/normalize.dark.min.css"
   />
-  <link rel="stylesheet" href="https://unpkg.com/open-props/buttons.dark.min.css" />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/open-props/buttons.dark.min.css"
+  />
   <style>
     button {
       margin: 0.5em;
@@ -50,7 +53,11 @@
           this.getRootNode().host.getAttribute("total-tips")
         );
 
-        if (!this.hasAttribute("hours") || this.getAttribute("hours") <= 0 || isNaN(totalTips)) {
+        if (
+          !this.hasAttribute("hours") ||
+          this.getAttribute("hours") <= 0 ||
+          isNaN(totalTips)
+        ) {
           this.shadowRoot.getElementById("displaySplit").innerHTML = "$--.--";
           return;
         }
@@ -58,12 +65,8 @@
           return;
         }
         const value =
-          Math.floor(
-            (totalTips / totalHours) *
-              parseFloat(this.getAttribute("hours")) *
-              100.0
-          ) / 100.0;  
-          
+          (totalTips / totalHours) * parseFloat(this.getAttribute("hours"));
+
         this.shadowRoot.getElementById(
           "displaySplit"
         ).innerHTML = `$${value.toFixed(2)}`;
