@@ -1,6 +1,8 @@
 /* fonts */
 header {
   font-family: "Monoton", sans-serif;
+  margin: auto;
+  text-align: center;
 }
 /*Font Shadow */
 body {
@@ -9,10 +11,10 @@ body {
 h1 {
   font-weight: 400;
   vertical-align: middle;
+  margin:0;
 }
 
 /* center align content */
-h1,
 p,
 img,
 main {
