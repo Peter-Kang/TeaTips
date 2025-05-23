@@ -24,6 +24,7 @@
       font-size:1.5em;
       width: 5em;
       vertical-align: middle;
+      color:grey;
     }
     #name {
       font-size:1.5em;
@@ -33,6 +34,12 @@
     #displaySplit{
       font-size:1.5em;
       vertical-align: middle;
+      color: whitesmoke;
+    }
+    #displayPill{
+      border-radius: 5px;
+      display:inline-block;
+      padding: 5px;
     }
   </style>
 
@@ -47,7 +54,7 @@
     type="number"
     placeholder="Hours"
   />
-  <label id="displaySplit"> $--.--</label>
+  <div id="displayPill"><label id="displaySplit"> $--.--</label></div>
 
   <script tl-effect>
     TramLite.addAttributeListener(
